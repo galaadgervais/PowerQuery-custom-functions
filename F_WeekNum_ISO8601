@@ -1,0 +1,14 @@
+// This function expects a valid date as argument
+// Source du code https://community.powerbi.com/t5/Desktop/Incorrect-week-number-at-year-end-beginning/m-p/1474322/highlight/true#M614369
+let
+    fxWeekOfCalendar = (Data as date) =>
+    let
+        Weekday = Date.DayOfWeek(Data) + 1,
+        Part1 = Number.From(Data) - Weekday + 11,
+        Part2 = Number.From(#date(Date.Year(Date.From(Number.From(Data) + 4 - Weekday)),1,1)),
+        Part3 = (Part1 - Part2) / 7,
+        Tranc = Part3 - Number.Mod(Part3, 1)
+    in
+        Tranc
+in
+    fxWeekOfCalendar
