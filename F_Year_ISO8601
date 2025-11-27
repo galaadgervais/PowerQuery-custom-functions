@@ -1,0 +1,10 @@
+// 2nd input is a number representing the real week number in ISO8601 calendar.
+let
+    fxYearOfCalendar = (Data as date, ISOWeekNumber as number ) =>
+    
+    let
+        Year = Date.Year(Date.AddDays(Data, 26 - ISOWeekNumber))
+    in
+        Year
+in
+    fxYearOfCalendar
